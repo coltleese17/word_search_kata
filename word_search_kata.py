@@ -24,6 +24,7 @@ def search_east(x,y, letter_index, word,letter_grid):
 			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
+				
 			#change the position 1 column east and look for the next letter
 			y += 1
 			letter_index +=1	
@@ -54,6 +55,7 @@ def search_south(x,y, letter_index, word,letter_grid):
 			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
+
 			#change the position 1 row south and look for the next letter
 			x += 1
 			letter_index +=1	
@@ -67,10 +69,11 @@ def search_south(x,y, letter_index, word,letter_grid):
 	 		#print e
 	 		return False	 	
 
+#only returns the coordinates of a found word in a list of tuples, or false.
 def search_west(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row south and look to match the next letter
+	#change the position 1 column west and look to match the next letter
 	y -= 1
 	letter_index += 1
 
@@ -83,7 +86,8 @@ def search_west(x,y, letter_index, word,letter_grid):
 			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
-			#change the position 1 row south and look for the next letter
+
+			#change the position 1 column west and look for the next letter
 			y -= 1
 			letter_index +=1	
 
