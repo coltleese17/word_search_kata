@@ -303,7 +303,6 @@ def search_north_east(x,y, letter_index, word,letter_grid):
 	 		return False	 			 			 	 			 	 			
 
 
-
 def main(text_file):
 	with open(text_file, "r") as tf:
 
@@ -313,9 +312,29 @@ def main(text_file):
 		#set the letter grid as a dataframe
 		letter_grid = pd.read_csv(tf, header = None)
 
+		letter_index = 0
+
+		#print out the word list and grid for accessibility
 		print word_list
 		print letter_grid
 
+		matches = {}
+
+		#for each word in the word list, loop thru the 2d letter grid
+		for word in word_list:
+			for x in letter_grid:
+				for y in letter_grid:
+					#if the letter in the grid matches the first letter of the search word
+					if (check_letter_match(letter_grid[x][y], word[letter_index])):
+						
+						#check every surrounding letter, if a match happens in a particular direction,
+						#keep trying that direction until the end of the word. if no matches, return false
+					 	word_coordinates = check_all_directions(x,y,letter_index, word,letter_grid)
+
+					 	if (word_coordinates):
+					 		matches[word] = word_coordinates
+		print matches			 		
+					 			
 if __name__ == '__main__':
 	# load in file from command line
 	text_file = sys.argv[-1]
