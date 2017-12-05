@@ -15,11 +15,11 @@ A high level explanation of the algorithm is:
 
   2. Once found, search in every direction for a letter that matches the second letter of the search word.
   
-  3
+  &nbsp;&nbsp;3
       a. If a second match is found, search in that direction until the end of the word.
   <br>&nbsp;&nbsp;&nbsp;&nbsp; -If you reach the end of the word, return the coordinates of the word, else return false.
   
-  3
+  &nbsp;&nbsp;3
       b. If a second match is not found, continue searching linearly. Repeat steps 2-3.
   
 Coded in Python 2.7.13
