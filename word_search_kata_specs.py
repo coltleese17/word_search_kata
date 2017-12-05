@@ -66,5 +66,13 @@ class wordSearchTDD(unittest.TestCase):
 		coordinates = word_search_kata.search_south_east(x,y,letter_index,word,letter_grid_3x3)
 		self.assertEqual( [(0,0),(1,1),(2,2)] , coordinates)				
 
+	def test_search_north_east(self):
+		x = 2
+		y = 0
+		letter_index = 0
+		word = 'ooe' 
+		coordinates = word_search_kata.search_north_east(x,y,letter_index,word,letter_grid_3x3)
+		self.assertEqual( [(2,0),(1,1),(0,2)] , coordinates)	
+
 if __name__ == '__main__':
 	unittest.main()		
