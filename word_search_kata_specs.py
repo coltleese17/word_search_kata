@@ -22,7 +22,15 @@ class wordSearchTDD(unittest.TestCase):
 		letter_index = 0
 		word = 'too' 
 		coordinates = word_search_kata.search_south(x,y,letter_index,word,letter_grid_3x3)
-		self.assertEqual( [(0,0),(1,0),(2,0)] , coordinates)	
+		self.assertEqual( [(0,0),(1,0),(2,0)] , coordinates)
+
+	def test_search_west(self):
+		x = 2
+		y = 0 
+		letter_index = 0
+		word = 'eht' 
+		coordinates = word_search_kata.search_west(x,y,letter_index,word,letter_grid_3x3)
+		self.assertEqual( [(0,2),(0,1),(0,0)] , coordinates)		
 
 if __name__ == '__main__':
 	unittest.main()		
