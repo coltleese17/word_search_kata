@@ -195,7 +195,40 @@ def search_south_west(x,y, letter_index, word,letter_grid):
 	except Exception as e:
 			#print "Out Of Bounds!"
 	 		#print e
-	 		return False		 			 	 			 		
+	 		return False	
+
+#only returns the coordinates of a found word in a list of tuples, or false.
+def search_south_east(x,y, letter_index, word,letter_grid):
+	coordinates = [(x,y)]
+
+	#change the position 1 row south and 1 column east and look to match the next letter
+	x += 1
+	y += 1 
+	letter_index += 1
+
+	try:
+		#continue while matches are being found
+		while (check_letter_match(letter_grid[x][y], word[letter_index])):
+
+			coordinates.append((x,y))
+
+			#if we reach the last letter, we know we've found the word, return the coordinates
+			if (letter_index == (len(word) - 1 )):
+				return coordinates
+
+			#change the position 1 row south and 1 column east look for the next letter
+			x += 1
+			y += 1
+			letter_index +=1	
+
+		#if no matches	
+		return False
+
+	#exceptions for if the search goes off the grid
+	except Exception as e:
+			#print "Out Of Bounds!"
+	 		#print e
+	 		return False	 			 			 	 			 		
 
 
 
