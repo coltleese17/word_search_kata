@@ -1,6 +1,12 @@
 import sys
 import pandas as pd
 
+def check_letter_match(current_letter,search_letter):
+	if current_letter == search_letter:
+		return True
+	else:
+		return False
+
 def main(text_file):
 	with open(text_file, "r") as tf:
 
