@@ -257,7 +257,8 @@ def main(text_file):
 
 					 	if (word_coordinates):
 					 		matches[word] = word_coordinates
-		print matches			 		
+		print matches
+		return matches			 		
 					 			
 if __name__ == '__main__':
 	text_file = sys.argv[-1]

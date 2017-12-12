@@ -74,5 +74,10 @@ class wordSearchTDD(unittest.TestCase):
 		coordinates = word_search_kata.search_north_east(x,y,letter_index,word,letter_grid_3x3)
 		self.assertEqual( [(2,0),(1,1),(0,2)] , coordinates)	
 
+	def test_main_with_values_not_found_on_grid(self):
+		output_of_full_program = word_search_kata.main('word-search-content-mock-with-searchwords-not-on-grid.txt')
+		self.assertEqual( {}, output_of_full_program)
+
+
 if __name__ == '__main__':
 	unittest.main()		
