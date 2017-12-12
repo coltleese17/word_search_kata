@@ -46,289 +46,213 @@ def check_all_directions(x,y,letter_index,word,letter_grid):
 	
 	return default_false_value		
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_east(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 column east and look to match the next letter
 	y += 1
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
+		
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 column east and look for the next letter
 			y += 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError:
 	 		return False	
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_south(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row south and look to match the next letter
 	x += 1
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 row south and look for the next letter
 			x += 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError:
 	 		return False	 	
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_west(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 column west and look to match the next letter
 	y -= 1
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 column west and look for the next letter
 			y -= 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError:
 	 		return False	 	 
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_north(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row north and look to match the next letter
 	x -= 1
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 row north and look for the next letter
 			x -= 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError as e:
 	 		return False	 
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_north_west(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row north and 1 column west and look to match the next letter
 	x -= 1
 	y -= 1 
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 row north and 1 column west look for the next letter
 			x -= 1
 			y -= 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError:
 	 		return False		 			 	 		
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_south_west(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row south and 1 column west and look to match the next letter
 	x += 1
 	y -= 1 
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 row south and 1 column west look for the next letter
 			x += 1
 			y -= 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError as e:
 	 		return False	
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_south_east(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row south and 1 column east and look to match the next letter
 	x += 1
 	y += 1 
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 row south and 1 column east look for the next letter
+
 			x += 1
 			y += 1
 			letter_index +=1	
-
-		#if no matches	
+	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError as e:
 	 		return False	 			 			 	 			 	
 
-#only returns the coordinates of a found word in a list of tuples, or false.
 def search_north_east(x,y, letter_index, word,letter_grid):
 	coordinates = [(x,y)]
 
-	#change the position 1 row north and 1 column east and look to match the next letter
 	x -= 1
 	y += 1 
 	letter_index += 1
 
 	try:
-		#continue while matches are being found
 		while (check_letter_match(letter_grid[x][y], word[letter_index])):
 
 			coordinates.append((x,y))
 
-			#if we reach the last letter, we know we've found the word, return the coordinates
 			if (letter_index == (len(word) - 1 )):
 				return coordinates
 
-			#change the position 1 row north and 1 column east look for the next letter
 			x -= 1
 			y += 1
 			letter_index +=1	
 
-		#if no matches	
 		return False
 
-	#exceptions for if the search goes off the grid
-	except Exception as e:
-			#print "Out Of Bounds!"
-	 		#print e
+	except KeyError:
 	 		return False	 			 			 	 			 	 			
 
 
 def main(text_file):
 	with open(text_file, "r") as tf:
 
-		#pull in a list of words from the first line
 		word_list = tf.readline().strip().split(",")
 
-		#set the letter grid as a dataframe
 		letter_grid = pd.read_csv(tf, header = None)
 
 		letter_index = 0
 
-		#print out the word list and grid for accessibility
 		print word_list
 		print letter_grid
 
 		matches = {}
 
-		#for each word in the word list, loop thru the 2d letter grid
 		for word in word_list:
 			for x in letter_grid:
 				for y in letter_grid:
-					#if the letter in the grid matches the first letter of the search word
+
 					if (check_letter_match(letter_grid[x][y], word[letter_index])):
-						
-						#check every surrounding letter, if a match happens in a particular direction,
-						#keep trying that direction until the end of the word. if no matches, return false
+
 					 	word_coordinates = check_all_directions(x,y,letter_index, word,letter_grid)
 
 					 	if (word_coordinates):
@@ -336,6 +260,5 @@ def main(text_file):
 		print matches			 		
 					 			
 if __name__ == '__main__':
-	# load in file from command line
 	text_file = sys.argv[-1]
 	main(text_file)
