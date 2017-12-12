@@ -78,6 +78,15 @@ class wordSearchTDD(unittest.TestCase):
 		output_of_full_program = word_search_kata.main('word-search-content-mock-with-searchwords-not-on-grid.txt')
 		self.assertEqual( {}, output_of_full_program)
 
+	def test_main_for_success(self):
+		output_of_full_program = word_search_kata.main('word-search-content.txt')
+		self.assertEqual( {'UHURA': [(4, 0), (3, 1), (2, 2), (1, 3), (0, 4)],
+		 					'KHAN': [(5, 9), (5, 8), (5, 7), (5, 6)], 
+		 					'SULU': [(3, 3), (2, 2), (1, 1), (0, 0)],
+		 					'SCOTTY': [(0, 5), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5)],
+		 					'KIRK': [(4, 7), (3, 7), (2, 7), (1, 7)],
+		 					'SPOCK': [(2, 1), (3, 2), (4, 3), (5, 4), (6, 5)]}, output_of_full_program)	
+
 
 if __name__ == '__main__':
 	unittest.main()		
