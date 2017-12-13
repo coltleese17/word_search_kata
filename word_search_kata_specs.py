@@ -18,13 +18,21 @@ class wordSearchTDD(unittest.TestCase):
 		coordinates = word_search_kata.search_east(x,y,letter_index,word,letter_grid_3x3)
 		self.assertEqual( [(0,0),(0,1),(0,2)] , coordinates)
 
-	def test_search_east_searchword_too_long(self):
+	def test_search_east_searchword_out_of_bounds(self):
 		x = 0 
 		y = 0 
 		letter_index = 0
 		word = 'them' 
 		coordinates = word_search_kata.search_east(x,y,letter_index,word,letter_grid_3x3)
-		self.assertEqual( False , coordinates)	
+		self.assertEqual( False , coordinates)
+
+	def test_search_east_searchword_not_found(self):
+		x = 0 
+		y = 0 
+		letter_index = 0
+		word = 'thx' 
+		coordinates = word_search_kata.search_east(x,y,letter_index,word,letter_grid_3x3)
+		self.assertEqual( False , coordinates)			
 
 	def test_search_south(self):
 		x = 0
