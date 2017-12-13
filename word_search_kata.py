@@ -66,7 +66,7 @@ def search_east(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError:
+	except (KeyError,IndexError):
 	 		return False	
 
 def search_south(x,y, letter_index, word,letter_grid):
@@ -88,7 +88,7 @@ def search_south(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError:
+	except (KeyError,IndexError):
 	 		return False	 	
 
 def search_west(x,y, letter_index, word,letter_grid):
@@ -110,7 +110,7 @@ def search_west(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError:
+	except (KeyError,IndexError):
 	 		return False	 	 
 
 def search_north(x,y, letter_index, word,letter_grid):
@@ -132,7 +132,7 @@ def search_north(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError as e:
+	except (KeyError,IndexError):
 	 		return False	 
 
 def search_north_west(x,y, letter_index, word,letter_grid):
@@ -156,7 +156,7 @@ def search_north_west(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError:
+	except (KeyError,IndexError):
 	 		return False		 			 	 		
 
 def search_south_west(x,y, letter_index, word,letter_grid):
@@ -180,7 +180,7 @@ def search_south_west(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError as e:
+	except (KeyError,IndexError):
 	 		return False	
 
 def search_south_east(x,y, letter_index, word,letter_grid):
@@ -205,7 +205,7 @@ def search_south_east(x,y, letter_index, word,letter_grid):
 	
 		return False
 
-	except KeyError as e:
+	except (KeyError,IndexError):
 	 		return False	 			 			 	 			 	
 
 def search_north_east(x,y, letter_index, word,letter_grid):
@@ -229,7 +229,7 @@ def search_north_east(x,y, letter_index, word,letter_grid):
 
 		return False
 
-	except KeyError:
+	except (KeyError,IndexError):
 	 		return False	 			 			 	 			 	 			
 
 
