@@ -4,7 +4,7 @@ Python solution and tests for the word search kata found here: https://github.co
 
 To run from command line, enter:
 
-`python word_search_kata.py [your-text-file].txt`
+`python word_search_kata.py [your-file]`
 
 To run the tests, enter:
 
