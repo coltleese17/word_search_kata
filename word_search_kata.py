@@ -7,6 +7,25 @@ def check_letter_match(current_letter,search_letter):
 	else:
 		return False
 
+def continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction):
+
+		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
+
+			coordinates.append((coord_x,coord_y))
+
+			if (letter_index == (len(word) - 1 )):
+				return coordinates
+
+			direction_x, direction_y = direction
+
+			coord_x += direction_x
+			coord_y += direction_y
+
+			letter_index +=1	
+
+		return False
+
+
 def check_all_directions(coord_x,coord_y,letter_index,word,letter_grid):
 	default_false_value = False
 
@@ -49,21 +68,15 @@ def check_all_directions(coord_x,coord_y,letter_index,word,letter_grid):
 def search_east(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
+	direction = (0,1)
 	coord_y += 1
 	letter_index += 1
 
 	try:
 		
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_y += 1
-			letter_index +=1	
-
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates	
 		return False
 
 	except (KeyError,IndexError):
@@ -72,20 +85,14 @@ def search_east(coord_x,coord_y, letter_index, word,letter_grid):
 def search_south(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
+	direction = (1,0)
 	coord_x += 1
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_x += 1
-			letter_index +=1	
-
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates
 		return False
 
 	except (KeyError,IndexError):
@@ -94,19 +101,15 @@ def search_south(coord_x,coord_y, letter_index, word,letter_grid):
 def search_west(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
-	coord_y -= 1
+	direction = (0,-1)
+	coord_y += -1
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
 
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_y -= 1
-			letter_index +=1	
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates
 
 		return False
 
@@ -116,19 +119,14 @@ def search_west(coord_x,coord_y, letter_index, word,letter_grid):
 def search_north(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
-	coord_x -= 1
+	direction = (-1,0)
+	coord_x += -1
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_x -= 1
-			letter_index +=1	
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates
 
 		return False
 
@@ -138,21 +136,16 @@ def search_north(coord_x,coord_y, letter_index, word,letter_grid):
 def search_north_west(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
-	coord_x -= 1
-	coord_y -= 1 
+	direction =(-1,-1)
+
+	coord_x += -1
+	coord_y += -1 
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_x -= 1
-			coord_y -= 1
-			letter_index +=1	
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates
 
 		return False
 
@@ -162,22 +155,16 @@ def search_north_west(coord_x,coord_y, letter_index, word,letter_grid):
 def search_south_west(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
+	direction = (1,-1)
+
 	coord_x += 1
-	coord_y -= 1 
+	coord_y += -1 
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_x += 1
-			coord_y -= 1
-			letter_index +=1	
-
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates
 		return False
 
 	except (KeyError,IndexError):
@@ -186,22 +173,16 @@ def search_south_west(coord_x,coord_y, letter_index, word,letter_grid):
 def search_south_east(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
+	direction = (1,1)
+
 	coord_x += 1
 	coord_y += 1 
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-
-			coord_x += 1
-			coord_y += 1
-			letter_index +=1	
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates
 	
 		return False
 
@@ -211,21 +192,16 @@ def search_south_east(coord_x,coord_y, letter_index, word,letter_grid):
 def search_north_east(coord_x,coord_y, letter_index, word,letter_grid):
 	coordinates = [(coord_x,coord_y)]
 
-	coord_x -= 1
+	direction = (-1,1)
+
+	coord_x += -1
 	coord_y += 1 
 	letter_index += 1
 
 	try:
-		while (check_letter_match(letter_grid[coord_x][coord_y], word[letter_index])):
-
-			coordinates.append((coord_x,coord_y))
-
-			if (letter_index == (len(word) - 1 )):
-				return coordinates
-
-			coord_x -= 1
-			coord_y += 1
-			letter_index +=1	
+		final_coordinates = continue_searching_in_this_direction(coord_x,coord_y, letter_index, word, letter_grid, coordinates, direction)
+		if (final_coordinates):
+			return final_coordinates	
 
 		return False
 
